@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <title>Bookshelf</title>
+</head>
+
+<body style="background-image: url('assets/img/bg-web.jpg');" class="font-quicksand overflow-y-scroll scrollbar">
+    <header class="bg-primary w-full">
+        <nav class="container mx-auto">
+            <div class="text-center p-6">
+                <p class="text-2xl font-bold text-accent">Bookshelf Apps</p>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container px-4 mx-auto">
+        <div id="toast-success-simpan" class="flex items-center justify-center p-4 w-full max-w-max text-gray-500 bg-white rounded-lg shadow
+            mx-auto fixed top-8 right-6 transition-all duration-500 ease-in-out opacity-0" role="alert">
+            <div
+                class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-green-500 bg-green-100 rounded-lg">
+                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                <span class="sr-only">Check icon</span>
+            </div>
+            <div class="ml-3 text-sm font-semibold text-primary">Buku berhasil ditambahkan.</div>
+        </div>
+
+        <div id="toast-success-pindah" class="flex items-center p-4 w-full max-w-max text-gray-500 bg-white rounded-lg shadow
+            mx-auto fixed top-8 right-6 transition-all duration-500 ease-in-out opacity-0" role="alert">
+            <div
+                class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-green-500 bg-green-100 rounded-lg">
+                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                <span class="sr-only">Check icon</span>
+            </div>
+            <div class="ml-3 text-sm font-semibold text-primary">Buku berhasil dipindahkan.</div>
+        </div>
+
+        <div id="toast-danger" class="flex items-center p-4 w-full max-w-max text-gray-500 bg-white rounded-lg shadow
+            mx-auto fixed top-8 right-6 transition-all duration-500 ease-in-out opacity-0" role="alert">
+            <div
+                class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-red-500 bg-red-100 rounded-lg">
+                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                <span class="sr-only">Error icon</span>
+            </div>
+            <div class="ml-3 text-sm font-semibold text-primary">Buku telah dihapus.</div>
+        </div>
+
+        <div class="bg-primary max-w-sm mx-auto mt-10 mb-16 rounded-xl">
+            <div id="wrapJudulBtn" class="relative flex justify-center">
+                <button type="button" id="btnBack" class="absolute left-3 top-3.5 text-accent hover:bg-secondary hover:rounded-full
+                    hover:text-accent/80 hidden"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M8.445 14.832A1 1 0 0010 14v-2.798l5.445 3.63A1 1 0 0017 14V6a1 1 0 00-1.555-.832L10 8.798V6a1 1 0 00-1.555-.832l-6 4a1 1 0 000 1.664l6 4z">
+                        </path>
+                    </svg></button>
+                <h2 id="judulText" class="text-center font-bold text-xl py-4 text-accent">Masukkan Buku Anda</h2>
+                <button type="button" id="btnSearch"
+                    class="absolute right-2 top-3.5 text-accent hover:bg-secondary hover:rounded-full hover:text-accent/80"><svg
+                        class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 9a2 2 0 114 0 2 2 0 01-4 0z"></path>
+                        <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a4 4 0 00-3.446 6.032l-2.261 2.26a1 1 0 101.414 1.415l2.261-2.261A4 4 0 1011 5z"
+                            clip-rule="evenodd"></path>
+                    </svg></button>
+            </div>
+            <hr>
+            <form action="" id="formCari" class="hidden flex-col p-4">
+                <label for="keywordJudul" class="input-label">Judul</label>
+                <input type="text" id="keywordJudul" name="keywordJudul" class="input-text" />
+                <button id="getBook" type="button"
+                    class="bg-accent text-slate-700 rounded-xl px-4 py-2 font-bold hover:bg-accent2 hover:text-slate-900">Cari</button>
+            </form>
+            <form action="" id="formInput" class="flex flex-col p-4">
+                <label for="judulBuku" class="input-label">Judul</label>
+                <input type="text" id="judulBuku" name="judulBuku" class="input-text" />
+
+                <label for="penulisBuku" class="input-label">Penulis</label>
+                <input type="text" id="penulisBuku" name="penulisBuku" class="input-text" />
+
+                <label for="tahunTerbit" class="input-label">Tahun</label>
+                <input type="text" id="tahunTerbit" name="tahunTerbit" class="input-text" />
+
+                <div class="mt-2 flex justify-between items-center">
+                    <div class="flex justify-center items-center">
+                        <input type="checkbox" name="selesaiBaca" id="selesaiBaca" class="hidden">
+                        <label for="selesaiBaca">
+                            <div class="w-9 h-5 bg-accent rounded-full flex items-center p-1 cursor-pointer bg-slate">
+                                <div class="w-4 h-4 bg-pink-900/80 bg-sla rounded-full toggle-circle"></div>
+                            </div>
+                        </label>
+                        <span class="font-semibold text-accent ml-2">Selesai dibaca</span>
+                    </div>
+                    <button id="btnSimpan" type="button"
+                        class="bg-accent text-slate-700 rounded-xl px-4 py-2 font-bold hover:bg-accent2 hover:text-slate-900">Simpan</button>
+                </div>
+            </form>
+        </div>
+        <div id="displayBelumWrap"
+            class="border-solid border-2 border-b-[1px] border-primary max-w-sm mx-auto rounded-md mb-16">
+            <h3 class="font-bold text-lg text-accent bg-primary p-4">Belum selesai dibaca</h3>
+            <div id="displayBelum">
+
+            </div>
+        </div>
+        <div id="displaySelesaiWrap"
+            class="border-solid border-2 border-b-[1px] border-primary max-w-sm mx-auto rounded-md mb-16 overflow-hidden">
+            <h3 class="font-bold text-lg text-accent bg-primary p-4">Selesai dibaca</h3>
+            <div id="displaySelesai">
+
+            </div>
+        </div>
+        <div id="displayHasilWrap"
+            class="border-solid border-2 border-b-[1px] border-primary max-w-sm mx-auto rounded-md mb-16 overflow-hidden hidden">
+            <h3 class="font-bold text-lg text-accent bg-primary p-4">Hasil Pencarian</h3>
+            <div id="displayHasil">
+
+            </div>
+        </div>
+    </main>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.input-label {
+  @apply mb-1 font-medium text-accent text-lg;
+}
+.input-text {
+  @apply mb-2 p-2 rounded-md;
+}
+.button-back {
+  @apply absolute left-3 top-3.5 text-accent;
+}
+.nf-text {
+  @apply text-center py-4 font-bold;
+}
+.wrap-div {
+  @apply rounded-md p-4;
+}
+.book-title {
+  @apply font-bold text-base;
+}
+.book-detail {
+  @apply font-semibold text-sm;
+}
+.button-wrap {
+  @apply mt-1;
+}
+.button-done {
+  @apply bg-secondary px-2 py-1 rounded-md text-accent mr-1;
+}
+.button-delete {
+  @apply bg-pink-900 px-2 py-1 rounded-md text-accent;
+}
+.hr-line {
+  @apply bg-primary h-[2px];
+}
+
+#selesaiBaca:checked ~ label div.toggle-circle {
+  @apply translate-x-3 bg-primary;
+}
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 20px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    background: #efead8;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #5f7161;
+    border-radius: 100vh;
+    border: 3px solid #f6f7ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #6d8b74;
+  }
+}
